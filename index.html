@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Palangging ❤️</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center;
+  font-family:Arial,sans-serif;
+  background:radial-gradient(circle at top,#ffd6e7 0%,#ff9fbd 35%,#d95f91 100%);
+  position:relative;
+}
+body:before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,255,255,.35) 0 2px,transparent 3px),
+    radial-gradient(circle at 80% 30%,rgba(255,255,255,.3) 0 2px,transparent 3px),
+    radial-gradient(circle at 40% 80%,rgba(255,255,255,.25) 0 2px,transparent 3px);
+  background-size:120px 120px,160px 160px,200px 200px;
+}
+.card{
+  width:min(90%,520px);padding:38px 26px;border-radius:32px;text-align:center;
+  background:rgba(255,255,255,.18);backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:0 20px 60px rgba(100,20,60,.25);
+  position:relative;z-index:5;animation:appear .9s ease;
+}
+.heart{font-size:65px;animation:pulse 1.2s infinite;margin-bottom:10px}
+h1{color:#fff;font-size:clamp(1.8rem,7vw,2.5rem);text-shadow:0 3px 12px rgba(80,0,30,.25);line-height:1.25}
+.question{color:#fff;font-size:1.25rem;font-weight:bold;margin:22px 0 28px}
+.buttons{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+button{
+  border:0;border-radius:999px;padding:14px 28px;background:#fff;color:#e34f82;
+  font-size:1rem;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(80,0,30,.18);
+  transition:.25s;
+}
+button:hover{transform:translateY(-4px) scale(1.04)}
+.message{display:none}
+.message p{color:#fff;font-size:1.08rem;line-height:1.75;margin-top:18px;text-shadow:0 2px 8px rgba(80,0,30,.2)}
+.love{color:#fff;font-weight:900;font-size:1.7rem;margin-top:20px;animation:pulse 1.2s infinite}
+.heart-float{position:absolute;bottom:-50px;z-index:2;animation:rise linear forwards;pointer-events:none}
+@keyframes pulse{50%{transform:scale(1.13)}}
+@keyframes appear{from{opacity:0;transform:translateY(25px) scale(.95)}to{opacity:1;transform:none}}
+@keyframes rise{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.fade{animation:fade .45s forwards}
+@keyframes fade{to{opacity:0;transform:scale(.92)}}
+</style>
+</head>
+<body>
+
+<div class="card" id="questionScreen">
+  <div class="heart">❤️</div>
+  <h1>HELLO PALANGGING 💕</h1>
+  <div class="question">DO YOU LOVE ME? 🥺❤️</div>
+  <div class="buttons">
+    <button onclick="showGoodnight()">YES ❤️</button>
+    <button onclick="showGoodnight()">YESSSS 💕</button>
+  </div>
+</div>
+
+<div class="card message" id="goodnightScreen">
+  <div class="heart">💗</div>
+  <h1>GOODNIGHT PALANGGINGG 🌙💕</h1>
+  <p>
+    I HOPE YOU HAVE A GOODNIGHT SLEEEP 🥺❤️<br><br>
+    I HOPE YOU REST WELL AND HAVE THE SWEETEST DREAMS, MY PALANGGINGG. 💕<br><br>
+    TALK TO YOU AGAIN TOMMOROW, AND ALWAYS REMEMBER THAT YOU ARE VERY SPECIAL TO ME. 🥹❤️
+  </p>
+  <div class="love">ILOVEYOUUUUUUUUUU ❤️</div>
+</div>
+
+<script>
+function showGoodnight(){
+  const q=document.getElementById("questionScreen");
+  const g=document.getElementById("goodnightScreen");
+  q.classList.add("fade");
+  setTimeout(()=>{
+    q.style.display="none";
+    g.style.display="block";
+  },450);
+}
+function makeHeart(){
+  const h=document.createElement("div");
+  h.className="heart-float";
+  h.textContent=["❤️","💕","💗","💖","💓","💞","✨"][Math.floor(Math.random()*7)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(16+Math.random()*24)+"px";
+  h.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),11000);
+}
+setInterval(makeHeart,450);
+</script>
+</body>
+</html>
